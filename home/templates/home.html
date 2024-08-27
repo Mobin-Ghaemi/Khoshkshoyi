@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meteor Shower</title>
+    <style>
+        /* CSS for stars and meteors */
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            background-image: radial-gradient(ellipse at top, #080e21 0%, #1b2735 95%);
+        }
+
+        .star {
+            width: 1px;
+            height: 1px;
+            background: transparent;
+            position: absolute;
+            box-shadow: 
+                1253px 680px #fff,
+                1375px 712px #fff,
+                1148px 912px #fff,
+                944px 580px #fff,
+                500px 300px #fff, 
+                200px 400px #fff,
+                800px 200px #fff,
+                1300px 950px #fff,
+                1700px 450px #fff,
+                100px 850px #fff,
+                900px 600px #fff;
+            z-index: -1; /* Ensure stars are behind meteors */
+        }
+
+        .meteor {
+            position: absolute;
+            width: 300px;
+            height: 1px;
+            transform: rotate(45deg); /* Adjust the angle so meteors move downwards to the bottom right */
+            background-image: linear-gradient(to right, #fff, rgba(255,255,255,0));
+            animation: meteor linear infinite;
+        }
+
+        .meteor:before {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 5px;
+            border-radius: 50%;
+            margin-top: -2px;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 0 15px 3px #fff;
+        }
+
+        @keyframes meteor {
+            0% {
+                opacity: 1;
+                transform: translateX(0) translateY(0) rotate(45deg); /* Start with original position */
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(600px) translateY(600px) rotate(45deg); /* Move to bottom-right */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="star"></div> <!-- This creates the star background -->
+    
+    <script>
+        function createMeteor() {
+            const meteor = document.createElement('div');
+            meteor.className = 'meteor';
+
+            // Random position and animation duration
+            const randomTop = Math.random() * window.innerHeight;
+            const randomLeft = Math.random() * window.innerWidth;
+            const randomDuration = Math.random() * 2 + 1; // Between 1 and 3 seconds
+
+            meteor.style.top = randomTop + 'px';
+            meteor.style.left = randomLeft + 'px';
+            meteor.style.animationDuration = randomDuration + 's';
+
+            document.body.appendChild(meteor);
+
+            // Remove meteor after animation ends to avoid cluttering the DOM
+            setTimeout(() => {
+                document.body.removeChild(meteor);
+            }, randomDuration * 1000); // Remove after animation duration
+        }
+
+        // Continuously create meteors at random intervals
+        setInterval(createMeteor, 300); // Create a new meteor every 300ms
+    </script>
+</body>
+</html>

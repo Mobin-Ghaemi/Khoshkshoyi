@@ -1,0 +1,296 @@
+<style>
+.background {
+    background-image: linear-gradient(to right top, #00005c, #030b6a, #051779, #072288, #062d97, #062d97, #062d97, #062d97, #072288, #051779, #030b6a, #00005c);        position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.register,
+.vorod input[type="submit"] {
+    background-color: black;
+    font-size: 26px;
+    border: 2px solid rgb(255, 136, 0);
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    cursor: pointer;
+}
+
+.register:hover,
+.vorod input[type="submit"]:hover {
+    background-color: #3c3c3c;
+}
+
+.register:active,
+.vorod input[type="submit"]:active {
+animation: clickAnimation 0.4s ease;
+}
+
+@keyframes clickAnimation {
+0% {
+    transform: scale(1);
+}
+50% {
+    transform: scale(1.1);
+    background-color: #0134ff; /* تغییر رنگ موقت */
+}
+100% {
+    transform: scale(1);
+}
+}
+
+
+
+.login {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+    height: 100vh;
+    position: relative;
+}
+
+.vorod {
+    text-align: center;
+    font-size: 24px;
+    display: flex;
+    justify-content: center; /* مرکز کردن دکمه ورود */
+}
+
+.bord {
+border: 2px solid rgb(255, 136, 0);
+padding: 50px;
+background: rgba(255, 255, 255, 0.8);
+background-color: white;
+box-shadow: 4px 3px black;
+border-radius: 15px;
+text-align: center;
+position: relative;
+width: 30%; 
+max-width: 800px;
+}
+.bord form {
+    direction: rtl;
+}
+.bord form p {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed #6d6d6d;
+}
+.bord form p input {
+    box-sizing: border-box;
+    width: 50%;
+    padding: 0 10px;
+    border-radius: 4px;
+    font-size: 18px;
+    border: 1px solid #cccccc;
+    font-family: inherit;
+}
+
+
+.stars {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 1s infinite alternate;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+.home {
+position: absolute;
+top: 20px;
+right: 20px;
+background-color: white;
+color: black;
+font-size: 28px;
+border-radius: 10px;
+direction: rtl;
+width: auto;
+padding: 10px 20px;
+text-align: center;
+display: flex;
+justify-content: center;
+cursor: pointer;
+overflow: hidden; /* جلوگیری از خارج شدن افکت هاله از دکمه */
+transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+display: inline-block;
+text-decoration:none;   
+}
+
+.home a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    color: black; /* رنگ پیش‌فرض متن */
+    transition: color 0.3s ease; /* اضافه کردن انتقال برای تغییر رنگ */
+    text-decoration:none;
+}
+
+.home::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+
+    opacity: 30%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.home:hover::before {
+    width: 300%;
+    height: 300%;
+     /* تغییر رنگ هاله هنگام انیمیشن */
+    /* opacity: 30%; */
+}
+
+.home:hover {
+    transform: scale(1.05); /* بزرگ شدن دکمه هنگام hover */
+    color: white;
+    background: rgb(255, 255, 255,0.2);
+    
+    
+}
+
+
+.home:active::before {
+    animation: pulseEffect 0.4s ease forwards; /* اجرای انیمیشن جدید هنگام کلیک */
+    /* تغییر رنگ هاله هنگام کلیک */
+    /* opacity: 30%; */
+}
+
+.home:active {
+    transform: scale(0.95); /* تغییر مقیاس دکمه هنگام کلیک */
+}
+
+@keyframes pulseEffect {
+    0% {
+        width: 300%;
+        height: 300%;
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+</style>
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت سفارش</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+
+
+
+
+    
+    <div class="background">
+        {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+        <div class="stars"></div>
+        <div class='login'>
+            <div class="bord">
+                <h2>ثبت نام</h2>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="vorod">
+                        <input type="submit" value="ذخیره" class="register" >
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const starsContainer = document.querySelector('.stars');
+        const starsCount = 400;  // تعداد ستاره‌ها
+    
+        for (let i = 0; i < starsCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.animationDuration = `${Math.random() * 3 + 1}s`;
+            star.style.animationDelay = `${Math.random() * 3}s`;
+            starsContainer.appendChild(star);
+        }
+    
+        const registerButton = document.querySelector('.register');
+        registerButton.addEventListener('click', () => {
+            registerButton.classList.add('active');
+            setTimeout(() => {
+                registerButton.classList.remove('active');
+            }, 300);
+        });
+        
+    </script>
+    
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
