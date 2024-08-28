@@ -8,3 +8,4 @@ class SefarshAdmin(admin.ModelAdmin):
     list_display=['name','id','shomare','created']
     search_fields=['name','id','shomare']
     list_filter=['created']
+admin.site.register(models.Open)

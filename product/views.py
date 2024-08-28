@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from product import forms
-
+from product import models
 def sabteSefaresh(request):
     object_id = None  
 
@@ -23,3 +23,4 @@ def sabteSefaresh(request):
     return render(request, 'sabt.html', ctx)
 def movafagh(request,object_id):
     return render (request,'success.html',{'object_id':object_id})
+

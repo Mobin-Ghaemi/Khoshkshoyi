@@ -6,4 +6,4 @@ class SabteSefaresh(forms.ModelForm):
 
         model=models.sefaresh
         fields='__all__'
-    
+        exclude=('vaziat',)

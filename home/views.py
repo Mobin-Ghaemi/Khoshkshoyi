@@ -1,8 +1,14 @@
 from django.shortcuts import render
-
+from product import models
 # Create your views here.
 def home(request):
-    ctx={
-        
+    try:
+        open = models.Open.objects.get(shomare=1)
+    except models.Open.DoesNotExist:
+        open = None  
+
+    ctx = {
+        'open': open,
     }
-    return render(request,'home.html',ctx)
+    print(ctx)
+    return render(request, 'home.html', ctx)
