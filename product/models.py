@@ -10,7 +10,7 @@ class sefaresh(models.Model):
     }
     name = models.CharField(max_length=80, verbose_name='نام و نام خانوادگی')
     shomare = models.BigIntegerField(verbose_name='شماره تماس')
-    created = jmodels.jDateField(auto_now=True, verbose_name='تاریخ سفارش')
+    created = jmodels.jDateField(auto_now_add=True, verbose_name='تاریخ سفارش')
     vaziat = models.CharField(
         max_length=30, verbose_name='وضعیت سفارش:', default='در حال شست و شو', choices=vaziatchoises,)
 
