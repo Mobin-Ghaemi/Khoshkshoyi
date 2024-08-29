@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from product import forms
 from product import models
+
+from django.shortcuts import render, get_object_or_404
+
 def sabteSefaresh(request):
     object_id = None  
 
@@ -23,4 +26,9 @@ def sabteSefaresh(request):
     return render(request, 'sabt.html', ctx)
 def movafagh(request,object_id):
     return render (request,'success.html',{'object_id':object_id})
-
+def sefaresh(request, id):
+    sefaresh_instance = get_object_or_404(models.sefaresh, id=id)
+    ctx = {
+        'sefaresh': sefaresh_instance,
+    }
+    return render(request, 'sefaresh.html', ctx)
