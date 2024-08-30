@@ -8,6 +8,7 @@ class sefaresh(models.Model):
         ('اماده ی تحویل', 'اماده ی تحویل'),
         ('تحویل مشتری داده شد', 'تحویل مشتری داده شد'),
     }
+    tedad=models.SmallIntegerField(verbose_name='نعداد لباس')
     name = models.CharField(max_length=80, verbose_name='نام و نام خانوادگی')
     shomare = models.BigIntegerField(verbose_name='شماره تماس')
     created = jmodels.jDateField(auto_now_add=True, verbose_name='تاریخ سفارش')
