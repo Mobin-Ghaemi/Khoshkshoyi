@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Vazir';
+    src: url('/static/fonts/VazirmatnVF.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn';
+}
+.login{
+    text-decoration: none;
+    background-color: #ffffff;
+    margin: 30px;
+    padding:10px;
+    color: #333;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid rgb(212, 212, 212);
+
+}
+.login:hover{
+background-color: #f5f5f5;
+border: 1px solid rgb(197, 197, 197);
+box-shadow: 1px 2px rgb(230, 230, 230);
+}
+
+ 

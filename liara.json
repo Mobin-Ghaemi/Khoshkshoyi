@@ -1,0 +1,16 @@
+
+{
+    "disks": [
+
+      {
+        "name": "media",
+        "mountTo": "aks"
+      },
+      {
+        "name": "database",
+        "mountTo": "db"
+      }
+    ]
+  }
+
+

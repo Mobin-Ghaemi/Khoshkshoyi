@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            color: #fff;
+            background: radial-gradient(circle, #1e1e30, #121223, #090912);
+        }
+
+        .container {
+            text-align: center;
+            z-index: 1;
+            position: relative;
+            padding: 20px;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            color: #ff6b6b;
+            animation: shake 0.8s ease-in-out infinite alternate;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(-5px);
+            }
+
+            100% {
+                transform: translateX(5px);
+            }
+        }
+
+        .message {
+            font-size: 2rem;
+            margin: 20px 0;
+        }
+
+        .home-link {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            z-index: 1;
+        }
+
+        .home-link:hover {
+            background-color: #45a049;
+        }
+
+        /* Starry Background */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: transparent;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+
+            .message {
+                font-size: 1.5rem;
+            }
+
+            .home-link {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 4rem;
+            }
+
+            .message {
+                font-size: 1.2rem;
+            }
+
+            .home-link {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="error-code">404</h1>
+        <h2 class="message">صفحه مورد نظر یافت نشد</h2>
+        <a href="/" class="home-link">برگشت به خانه</a>
+    </div>
+    <div class="stars" id="stars"></div>
+
+    <script>
+        const numberOfStars = 300;
+        const starsContainer = document.getElementById("stars");
+
+        for (let i = 0; i < numberOfStars; i++) {
+            const star = document.createElement("div");
+            star.classList.add("star");
+
+            const topPosition = Math.random() * 100;
+            const leftPosition = Math.random() * 100;
+
+            const animationDuration = Math.random() * 2 + 1 + "s";
+            const animationDelay = Math.random() * 2 + "s";
+
+            star.style.top = topPosition + "vh";
+            star.style.left = leftPosition + "vw";
+            star.style.animationDuration = animationDuration;
+            star.style.animationDelay = animationDelay;
+
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+
+</html>
