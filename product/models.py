@@ -20,7 +20,7 @@ class Open(models.Model):
         ('باز','باز'),
         ('بسته','بسته'),
     }
-    open=models.CharField(max_length=25,verbose_name='وضعیت باز بودن : ',choices=openchoises)
+    open=models.CharField(max_length=25,verbose_name='وضعیت باز بودن : ',choices=openchoises,default='باز')
     shomare =models.IntegerField()
     def __str__(self) -> str:
         return self.open

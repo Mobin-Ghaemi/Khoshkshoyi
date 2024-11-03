@@ -3,7 +3,7 @@ from product import models
 # Create your views here.
 def home(request):
     search_id = request.GET.get('search_id')
-    open = models.Open.objects.get(shomare=1)
+    open = models.Open.objects.get_or_create(shomare=1)
     if search_id:
         try:
             sefaresh_item = get_object_or_404(models.sefaresh, id=search_id)
